@@ -1,5 +1,7 @@
 ##  Peat bogs and loss of bogland in Ireland and Northern Ireland
 
+![image](https://github.com/mmc1718/webmap-ireland/assets/65325195/d81ed802-5514-4a08-a3e5-a57cea305a31)
+
 This repository contains files used to create a web map showing peat bog data derive from the Corine Land Cover inventory years 2000 and 2012.
 
 A live version of the map can be found at https://marymcguire.dev/ireland-bog-map
