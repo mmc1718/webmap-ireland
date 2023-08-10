@@ -27,7 +27,7 @@ function setUpMap() {
       type: "fill",
       source: "peat_bogs",
       paint: {
-          "fill-color": "#0d490c",
+          "fill-color": "#92a94a",
           "fill-opacity": 0.4,
       },
   });
@@ -37,7 +37,7 @@ function setUpMap() {
       type: "fill",
       source: "lost_bogs",
       paint: {
-          "fill-color": "#49270c",
+          "fill-color": "#744333",
           "fill-opacity": 0.4,
       },
   })
