@@ -1,0 +1,363 @@
+{
+  "version": 8,
+  "name": "Ireland",
+  "metadata": {"maputnik:renderer": "mbgljs"},
+  "sources": {
+    "OpenMapTiles": {
+      "type": "vector",
+      "url": "http://localhost:8080/data/v3.json"
+    }
+  },
+  "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
+  "glyphs": "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background-color",
+      "type": "background",
+      "layout": {"visibility": "visible"},
+      "paint": {"background-color": "rgba(207, 207, 207, 1)"}
+    },
+    {
+      "id": "background",
+      "type": "background",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "background-color": "rgba(196, 218, 244, 1)",
+        "background-pattern": "wave",
+        "background-opacity": 0.5
+      }
+    },
+    {
+      "id": "land",
+      "type": "fill",
+      "source": "OpenMapTiles",
+      "source-layer": "ireland",
+      "filter": ["all", ["!=", "class", "ocean"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 243, 245, 1)"}
+    },
+    {
+      "id": "land_outline",
+      "type": "line",
+      "source": "OpenMapTiles",
+      "source-layer": "ireland",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(213, 218, 219, 1)",
+        "line-width": 5,
+        "line-offset": -1
+      }
+    },
+    {
+      "id": "land_outline_inner",
+      "type": "line",
+      "source": "OpenMapTiles",
+      "source-layer": "ireland",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(170, 170, 170, 1)",
+        "line-width": 0.5,
+        "line-blur": 0.5
+      }
+    },
+    {
+      "id": "park",
+      "type": "fill",
+      "source": "OpenMapTiles",
+      "source-layer": "park",
+      "filter": ["all", ["!=", "class", "marine_protected_area"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(213, 218, 218, 0.37)"}
+    },
+    {
+      "id": "landuse",
+      "type": "fill",
+      "source": "OpenMapTiles",
+      "source-layer": "landuse",
+      "filter": ["all", ["in", "class", "residential", "industrial", "quarry"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(218, 218, 218, 1)"}
+    },
+    {
+      "id": "landcover_green-rock",
+      "type": "fill",
+      "source": "OpenMapTiles",
+      "source-layer": "landcover",
+      "filter": ["any", ["in", "class", "rock"]],
+      "paint": {"fill-color": "rgba(198, 198, 198, 0.37)"}
+    },
+    {
+      "id": "landcover_green",
+      "type": "fill",
+      "source": "OpenMapTiles",
+      "source-layer": "landcover",
+      "filter": ["any", ["in", "class", "wood", "grass", "farmland"]],
+      "paint": {"fill-color": "rgba(202, 210, 202, 0.37)"}
+    },
+    {
+      "id": "water_color",
+      "type": "fill",
+      "source": "OpenMapTiles",
+      "source-layer": "water",
+      "filter": ["all", ["!=", "class", "ocean"]],
+      "paint": {"fill-color": "rgba(200, 206, 206, 1)"}
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "OpenMapTiles",
+      "source-layer": "water",
+      "filter": ["all", ["!=", "class", "ocean"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(131, 164, 202, 0.44)",
+        "fill-pattern": "wave",
+        "fill-opacity": 1
+      }
+    },
+    {
+      "id": "water_name",
+      "type": "symbol",
+      "source": "OpenMapTiles",
+      "source-layer": "water_name",
+      "layout": {
+        "text-font": ["Roboto Light Italic"],
+        "text-field": ["get", "name"],
+        "symbol-placement": "line-center",
+        "visibility": "visible",
+        "text-size": 18,
+        "text-letter-spacing": 2,
+        "text-line-height": 1.2,
+        "text-padding": 2,
+        "text-max-width": 20
+      },
+      "paint": {"text-color": "rgba(9, 43, 77, 1)"}
+    },
+    {
+      "id": "waterway",
+      "type": "line",
+      "source": "OpenMapTiles",
+      "source-layer": "waterway",
+      "filter": ["all", ["!=", "class", "ditch"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(200, 206, 206, 1)", "line-width": 4}
+    },
+    {
+      "id": "waterway_label",
+      "type": "symbol",
+      "source": "OpenMapTiles",
+      "source-layer": "waterway",
+      "layout": {
+        "text-field": ["get", "name"],
+        "text-font": ["Roboto Light Italic"],
+        "symbol-placement": "line",
+        "text-letter-spacing": 2
+      },
+      "paint": {"text-color": "rgba(29, 56, 84, 1)"}
+    },
+    {
+      "id": "county-boundary-ni",
+      "type": "line",
+      "source": "OpenMapTiles",
+      "source-layer": "counties",
+      "maxzoom": 9,
+      "filter": ["all", ["==", "iso_a2", "GB"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(180, 176, 176, 0.41)",
+        "line-dasharray": {"stops": [[0, [3, 2]], [5, [4, 3]]]},
+        "line-width": 0.5
+      }
+    },
+    {
+      "id": "boundary-county",
+      "type": "line",
+      "source": "OpenMapTiles",
+      "source-layer": "boundary",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["!=", "maritime", 1],
+        [">", "admin_level", 2],
+        ["<", "admin_level", 8]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(180, 176, 176, 1)",
+        "line-dasharray": {"stops": [[0, [3, 1]], [5, [4, 3]]]}
+      }
+    },
+    {
+      "id": "boundary",
+      "type": "line",
+      "source": "OpenMapTiles",
+      "source-layer": "boundary",
+      "filter": ["all", ["!=", "maritime", 1], ["==", "admin_level", 2]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(146, 144, 144, 1)",
+        "line-dasharray": [5, 2]
+      }
+    },
+    {
+      "id": "county-boundary",
+      "type": "line",
+      "source": "OpenMapTiles",
+      "source-layer": "counties",
+      "maxzoom": 9,
+      "filter": ["all", ["!=", "iso_a2", "GB"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(180, 176, 176, 1)",
+        "line-dasharray": {"stops": [[0, [3, 1]], [5, [4, 3]]]},
+        "line-width": 0.5
+      }
+    },
+    {
+      "id": "building",
+      "type": "fill",
+      "source": "OpenMapTiles",
+      "source-layer": "building",
+      "paint": {"fill-color": "rgba(207, 204, 204, 1)"}
+    },
+    {
+      "id": "roads-outline",
+      "type": "line",
+      "source": "OpenMapTiles",
+      "source-layer": "transportation",
+      "minzoom": 8,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(212, 212, 212, 0.51)", "line-width": 2}
+    },
+    {
+      "id": "roads",
+      "type": "line",
+      "source": "OpenMapTiles",
+      "source-layer": "transportation",
+      "minzoom": 8,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(249, 240, 207, 0.81)", "line-width": 0.5}
+    },
+    {
+      "id": "mountain_range",
+      "type": "fill",
+      "source": "OpenMapTiles",
+      "source-layer": "mountain_peak",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(211, 211, 211, 1)",
+        "fill-pattern": "mountain_11"
+      }
+    },
+    {
+      "id": "mountain_label",
+      "type": "symbol",
+      "source": "OpenMapTiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 8,
+      "filter": ["all", ["<", "rank", 2]],
+      "layout": {
+        "text-font": ["Roboto Light Italic"],
+        "text-size": 10,
+        "text-field": ["get", "name"],
+        "text-anchor": "bottom",
+        "text-line-height": 1,
+        "text-padding": 2,
+        "text-transform": "uppercase",
+        "text-offset": [0, -1.5]
+      }
+    },
+    {
+      "id": "mountain_peak",
+      "type": "symbol",
+      "source": "OpenMapTiles",
+      "source-layer": "mountain_peak",
+      "layout": {"icon-image": "mountain_11"}
+    },
+    {
+      "id": "park_label",
+      "type": "symbol",
+      "source": "OpenMapTiles",
+      "source-layer": "park",
+      "filter": ["all", ["!=", "class", "marine_protected_area"]],
+      "layout": {
+        "text-field": ["get", "name"],
+        "text-font": ["Roboto Thin Italic"],
+        "visibility": "visible",
+        "symbol-placement": "point",
+        "symbol-z-order": "auto",
+        "icon-anchor": "center",
+        "symbol-avoid-edges": false,
+        "text-pitch-alignment": "auto",
+        "text-size": 14,
+        "icon-rotation-alignment": "auto",
+        "symbol-spacing": 250,
+        "text-padding": 200
+      }
+    },
+    {
+      "id": "place-low-rank",
+      "type": "symbol",
+      "source": "OpenMapTiles",
+      "source-layer": "place",
+      "filter": ["all", [">", "rank", 5], ["<", "rank", 14]],
+      "layout": {
+        "text-field": ["get", "name"],
+        "visibility": "visible",
+        "text-font": ["Noto Sans Regular"],
+        "text-padding": 1,
+        "text-transform": "uppercase",
+        "text-size": 10
+      },
+      "paint": {
+        "text-color": "rgba(68, 60, 60, 1)",
+        "icon-halo-width": 1,
+        "icon-halo-color": "rgba(228, 228, 228, 1)"
+      }
+    },
+    {
+      "id": "place",
+      "type": "symbol",
+      "source": "OpenMapTiles",
+      "source-layer": "place",
+      "filter": ["all", ["<=", "rank", 5], [">", "rank", 2]],
+      "layout": {
+        "text-field": ["get", "name"],
+        "visibility": "visible",
+        "text-font": ["Noto Sans Regular"],
+        "text-padding": 1,
+        "text-transform": "uppercase",
+        "text-letter-spacing": 0.2,
+        "text-size": 13
+      },
+      "paint": {
+        "text-color": "rgba(49, 46, 46, 1)",
+        "icon-halo-width": 1,
+        "icon-halo-color": "rgba(227, 227, 227, 1)"
+      }
+    },
+    {
+      "id": "place-high-rank",
+      "type": "symbol",
+      "source": "OpenMapTiles",
+      "source-layer": "place",
+      "filter": ["all", ["<=", "rank", 2]],
+      "layout": {
+        "text-field": ["get", "name"],
+        "visibility": "visible",
+        "text-font": ["Noto Sans Regular"],
+        "text-padding": 1,
+        "text-transform": "uppercase",
+        "text-size": 24,
+        "text-letter-spacing": 1
+      },
+      "paint": {
+        "text-color": "rgba(90, 89, 89, 1)",
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      }
+    }
+  ],
+  "id": "q1zfgjgxb"
+}

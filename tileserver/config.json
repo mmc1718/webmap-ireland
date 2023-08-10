@@ -1,0 +1,29 @@
+{
+    "options": {
+      "paths": {
+        "root": "",
+        "fonts": "/usr/src/app/node_modules/tileserver-gl-styles/fonts",
+        "styles": "styles",
+        "mbtiles": ""
+      }
+    },
+    "domains": [
+      "localhost"
+    ],
+    "styles": {
+      "natural": {
+        "style": "ireland.json",
+        "tilejson": {
+          "bounds": [
+            -17.7,46.6,2.7,58.6
+          ]
+        }
+      }
+    },
+    "data": {
+      "v3": {
+        "mbtiles": "ireland.mbtiles"
+      }
+    }
+  }
+  
